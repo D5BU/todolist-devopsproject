@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/D5BU/todolist-devopsproject.git'
+                git branch: 'main', url: 'https://github.com/D5BU/todolist-devopsproject.git'
             }
         }
 
@@ -22,7 +22,7 @@ pipeline {
 
         stage('Run Docker Container') {
             steps {
-                powershell 'docker run -d -p 3000:3000 --name todo-container todo-app'
+                powershell 'docker run -d -p 3000:3000 todo-app'
             }
         }
     }
